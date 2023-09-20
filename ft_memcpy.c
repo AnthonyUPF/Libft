@@ -1,17 +1,28 @@
-// ft_memcpy.c
-void *ft_memcpy(void *dest, const void *src, size_t n)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/20 19:34:52 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/20 19:40:00 by anthtorr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void *ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-    char *d = dest;
-    const char *s = src;
+    char *temp_dst = dst;
+    const char *temp_src = src;
     while (n--)
-        *d++ = *s++;
-    return dest;
+        *temp_dst++ = *temp_src++;
+    return (dst);
 }
 
-// main_memcpy.c
 #include <stdio.h>
 #include <string.h>
-#include "libft.h"
 
 int main()
 {
