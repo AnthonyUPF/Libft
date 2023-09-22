@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:34:52 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/21 17:02:06 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:01:26 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-    char	*temp_dst;
-    const char	*temp_src;
+	char		*tmp_dst;
+	const char	*tmp_src;
 
-	temp_dst = dst;
-	temp_src = src;
-    while (n--)
-        *temp_dst++ = *temp_src++;
-    return (dst);
+	tmp_dst = dst;
+	tmp_src = src;
+	while (n--)
+		*tmp_dst++ = *tmp_src++;
+	return (dst);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -38,4 +38,4 @@ int main()
     printf("memcpy: %s\n", dest2);
     return 0;
 }
-
+*/

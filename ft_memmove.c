@@ -1,27 +1,58 @@
-// ft_memmove.c
-void *ft_memmove(void *dest, const void *src, size_t n)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/22 17:31:25 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/22 18:09:49 by anthtorr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-    unsigned char *d = dest;
-    const unsigned char *s = src;
-    unsigned char *tmp = malloc(n);
-    if (!tmp)
-        return NULL;
-    ft_memcpy(tmp, s, n);
-    ft_memcpy(d, tmp, n);
-    free(tmp);
-    return dest;
+	char		*tmp_dst;
+	const char	*tmp_src;
+
+	tmp_dst = dst;
+	tmp_src = src;
+	while (n--)
+		*tmp_dst++ = *tmp_src++;
+	return (dst);
 }
 
-// main_memmove.c
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+    unsigned char *tmp_dst;
+    const unsigned char *tmp_src;
+    unsigned char *tmp;
+    
+    tmp_dst = dst;
+    tmp_src = src;	
+    tmp = malloc(len);
+	if (!tmp)
+        return NULL;
+    ft_memcpy(tmp, tmp_src, len);
+    ft_memcpy(tmp_dst, tmp, len);
+    free(tmp);
+    return dst;
+}
+
 #include <stdio.h>
 #include <string.h>
-#include "libft.h"
 
 int main()
 {
-    char str[10] = "Hello";
-    ft_memmove(str + 2, str, 3);
-    printf("ft_memmove: %s\n", str);
-    return 0;
+    const char str[10] = "Hello";
+	char dest1[10];
+	char dest2[10];
+    ft_memmove(dest1, str, sizeof(str));
+   	printf("ft_memmove: %s\n", dest1); 
+    memmove(dest2, str, sizeof(str));
+    printf("memmove: %s\n", dest1);
+   	return 0;
 }
 
