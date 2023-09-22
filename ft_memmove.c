@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:31:25 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/22 18:09:49 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:20:05 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-    unsigned char *tmp_dst;
-    const unsigned char *tmp_src;
-    unsigned char *tmp;
-    
-    tmp_dst = dst;
-    tmp_src = src;	
-    tmp = malloc(len);
-	if (!tmp)
-        return NULL;
-    ft_memcpy(tmp, tmp_src, len);
-    ft_memcpy(tmp_dst, tmp, len);
-    free(tmp);
-    return dst;
-}
+	unsigned char		*tmp_dst;
+	const unsigned char	*tmp_src;
+	unsigned char		*tmp;
 
+	tmp_dst = dst;
+	tmp_src = src;
+	tmp = malloc(len);
+	if (!tmp)
+		return (NULL);
+	ft_memcpy(tmp, tmp_src, len);
+	ft_memcpy(tmp_dst, tmp, len);
+	free(tmp);
+	return (dst);
+}
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -55,4 +55,4 @@ int main()
     printf("memmove: %s\n", dest1);
    	return 0;
 }
-
+*/
