@@ -1,7 +1,22 @@
-// ft_strlcpy.c
-size_t ft_strlcpy(char *dest, const char *src, size_t size)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/26 14:22:52 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/26 14:24:51 by anthtorr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-    size_t len = 0;
+	size_t len;
+
+    len = 0;
     while (src[len] && len + 1 < size)
     {
         dest[len] = src[len];
@@ -11,13 +26,11 @@ size_t ft_strlcpy(char *dest, const char *src, size_t size)
         dest[len] = '\0';
     while (src[len])
         len++;
-    return len;
+    return (len);
 }
 
-// main_strlcpy.c
 #include <stdio.h>
 #include <string.h>
-#include "libft.h"
 
 int main()
 {

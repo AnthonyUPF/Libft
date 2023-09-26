@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:31:25 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/22 18:20:05 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:21:38 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 int main()
 {
-    const char str[10] = "Hello";
-	char dest1[10];
-	char dest2[10];
+    const char str[15] = "Hello World!";
+	char dest1[15];
+	char dest2[15];
     ft_memmove(dest1, str, sizeof(str));
    	printf("ft_memmove: %s\n", dest1); 
     memmove(dest2, str, sizeof(str));
