@@ -25,15 +25,26 @@ char* ft_strdup(const char* str) {
     return new_str;
 }
 
+#include <string.h>
+
 int main() {
     const char str[] = "Hello, world!";
-    char* result = ft_strdup(str);
+    char *result = ft_strdup(str);
 
     if (result != NULL) {
-        printf("Copia de la cadena: %s\n", result);
+        printf("ft_strdup: %s\n", result);
         free(result);
     } else {
-        printf("La asignación de memoria falló.\n");
+        printf("La asignación de memoria con ft_strdup falló.\n");
+    }
+
+    char *original_result = strdup(str);
+
+    if (original_result != NULL) {
+        printf("strdup: %s\n", original_result);
+        free(original_result);
+    } else {
+        printf("La asignación de memoria con strdup falló.\n");
     }
 
     return 0;

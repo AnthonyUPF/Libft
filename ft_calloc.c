@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 20:48:24 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/28 20:53:07 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/28 21:32:14 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,28 @@ void	*ft_calloc(size_t count, size_t size)
 }
 /*
 #include <stdio.h>
-#include <stdlib.h>
-
 int main() {
     size_t count = 5;
     size_t size = sizeof(int);
 
-    int* result = (int*)ft_calloc(count, size);
+    int *result = (int *)ft_calloc(count, size);
     if (result != NULL) {
         for (size_t i = 0; i < count; i++) {
-            printf("%d ", result[i]);
+            printf("ft_calloc: %d\n", result[i]);
         }
-        printf("\n");
-
         free(result);
     } else {
-        printf("La asignación de memoria falló.\n");
+        printf("La asignación de memoria con ft_calloc falló.\n");
+    }
+
+    int *original_result = (int *)calloc(count, size);
+    if (original_result != NULL) {
+        for (size_t i = 0; i < count; i++) {
+            printf("calloc: %d\n", original_result[i]);
+        }
+        free(original_result);
+    } else {
+        printf("La asignación de memoria con calloc falló.\n");
     }
 
     return 0;
