@@ -1,16 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/28 19:04:31 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/28 19:12:40 by anthtorr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	const unsigned char	*p;
+
+	p = s;
+	while (n--)
+	{
+		if (*p == (unsigned char) c)
+			return ((void *) p);
+		p++;
+	}
+	return (NULL);
+}
+/*
 #include <stdio.h>
 #include <string.h>
-
-void* ft_memchr(const void* ptr, int value, size_t num) {
-    const unsigned char* p = ptr;
-    while (num--) {
-        if (*p == (unsigned char)value) {
-            return (void*)p;
-        }
-        p++;
-    }
-    return NULL;
-}
 
 int main() {
     const char str[] = "Hello, world!";
@@ -34,4 +51,4 @@ int main() {
 
     return 0;
 }
-
+*/

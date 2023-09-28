@@ -1,20 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/28 20:48:24 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/28 20:53:07 by anthtorr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	size_t			total_size;
+	void			*ptr;
+	unsigned char	*p;
+
+	total_size = count * size;
+	ptr = malloc(total_size);
+	if (ptr != NULL)
+	{
+		p = (unsigned char *) ptr;
+		while (total_size--)
+		{
+			*p = 0;
+			p++;
+		}
+	}
+	return (ptr);
+}
+/*
 #include <stdio.h>
 #include <stdlib.h>
-
-void* ft_calloc(size_t count, size_t size) {
-    size_t total_size = count * size;
-    void* ptr = malloc(total_size);
-
-    if (ptr != NULL) {
-        unsigned char* p = (unsigned char*)ptr;
-        while (total_size--) {
-            *p = 0;
-            p++;
-        }
-    }
-
-    return ptr;
-}
 
 int main() {
     size_t count = 5;
@@ -34,4 +53,4 @@ int main() {
 
     return 0;
 }
-
+*/
