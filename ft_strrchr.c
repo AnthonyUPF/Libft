@@ -1,16 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/28 12:41:21 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/28 12:47:34 by anthtorr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
+{
+	const char	*last_occurrence;
+
+	last_occurrence = NULL;
+	while (*s)
+	{
+		if (*s == c)
+			last_occurrence = s;
+		s++;
+	}
+	return ((char *) last_occurrence);
+}
+/*
 #include <stdio.h>
 #include <string.h>
-
-char* ft_strrchr(const char* str, int c) {
-    const char* last_occurrence = NULL;
-    while (*str != '\0') {
-        if (*str == c) {
-            last_occurrence = str;
-        }
-        str++;
-    }
-    return (char*)last_occurrence;
-}
 
 int main() {
     const char str[] = "Hello, world!";
@@ -32,4 +49,4 @@ int main() {
 
     return 0;
 }
-
+*/

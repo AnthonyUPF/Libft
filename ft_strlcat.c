@@ -6,13 +6,13 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:33:08 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/27 15:41:52 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/28 12:18:54 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+static size_t	ft_st_strlen(const char *s)
 {
 	size_t	len;
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+static char	*ft_st_strncpy(char *dst, const char *src, size_t len)
 {
 	size_t	i;
 
@@ -46,12 +46,12 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 	size_t	src_len;
 	size_t	copy_len;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
+	dst_len = ft_st_strlen(dst);
+	src_len = ft_st_strlen(src);
 	if (dstsize <= dst_len)
 		return (dstsize + src_len);
 	copy_len = dstsize - dst_len - 1;
-	ft_strncpy(dst + dst_len, src, copy_len);
+	ft_st_strncpy(dst + dst_len, src, copy_len);
 	dst[dst_len + copy_len] = '\0';
 	return (dst_len + src_len);
 }

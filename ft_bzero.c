@@ -6,13 +6,13 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:24:18 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/21 16:56:35 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/28 11:11:51 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+static void	*ft_st_memset(void *b, int c, size_t len)
 {
 	unsigned char	*temp;
 
@@ -24,7 +24,7 @@ void	*ft_memset(void *b, int c, size_t len)
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, 0, n);
+	ft_st_memset(s, 0, n);
 }
 /*
 #include <stdio.h>
