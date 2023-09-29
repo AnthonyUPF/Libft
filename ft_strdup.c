@@ -1,30 +1,49 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/29 14:16:19 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/29 14:35:14 by anthtorr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char* ft_strdup(const char* str) {
-    size_t len = 0;
-    const char* p = str;
-    while (*p != '\0') {
-        len++;
-        p++;
-    }
+#include "libft.h"
 
-    char* new_str = (char*)malloc((len + 1) * sizeof(char));
+size_t	ft_st_strlen(const char *s)
+{
+	size_t	len;
 
-    if (new_str != NULL) {
-        char* dest = new_str;
-        p = str;
-        while (*p != '\0') {
-            *dest = *p;
-            dest++;
-            p++;
-        }
-        *dest = '\0';
-    }
-
-    return new_str;
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }
 
+char	*ft_strdup(const char *s1)
+{
+	size_t		len;
+	const char	*p;
+	char		*new_str;
+	char		*dst;
+
+	p = s1;
+	len = ft_st_strlen(p);
+	new_str = malloc(len + 1);
+	if (new_str != NULL)
+	{
+		dst = new_str;
+		while (*p != '\0')
+			*dst++ = *p++;
+		*dst = '\0';
+	}
+	return (new_str);
+}
+/*
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 int main() {
@@ -49,4 +68,4 @@ int main() {
 
     return 0;
 }
-
+*/
