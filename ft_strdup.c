@@ -6,13 +6,13 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:16:19 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/29 14:35:14 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:17:35 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_st_strlen(const char *s)
+static size_t	ft_st_strlen(const char *s)
 {
 	size_t	len;
 
