@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:31:50 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/29 17:33:44 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/30 15:59:12 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*ft_st_strdup(const char *s1)
 
 	p = s1;
 	len = ft_st_strlen(p);
-	new_str = malloc(len + 1);
+	new_str = malloc((len + 1) * sizeof(char));
 	if (new_str != NULL)
 	{
 		dst = new_str;
@@ -86,7 +86,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (ft_st_strdup(s1));
 	len1 = ft_st_strlen(s1);
 	len2 = ft_st_strlen(s2);
-	result = malloc(len1 + len2 + 1);
+	result = malloc((len1 + len2 + 1) * sizeof(char));
 	if (result != NULL)
 	{
 		ft_st_strcpy(result, s1);

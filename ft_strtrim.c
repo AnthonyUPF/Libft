@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:39:30 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/29 18:16:30 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/30 15:11:00 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	ft_st_indices(s1, set, &start, &end);
 	new_len = end - start;
-	result = malloc(new_len + 1);
+	result = malloc((new_len + 1) * sizeof(char));
 	if (result != NULL)
 	{
 		i = 0;

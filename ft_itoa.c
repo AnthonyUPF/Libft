@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 14:16:19 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/30 15:05:07 by anthtorr         ###   ########.fr       */
+/*   Created: 2023/09/30 15:55:00 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/30 16:40:11 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	ft_st_strlen(const char *s)
 	return (len);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_st_strdup(const char *s1)
 {
 	size_t		len;
 	const char	*p;
@@ -41,29 +41,68 @@ char	*ft_strdup(const char *s1)
 	}
 	return (new_str);
 }
+
+static int	ft_st_num_len(int n)
+{
+	int	len;
+
+	len = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+static void	ft_st_fill_str(char *str, int n, int len, int sign)
+{
+	str[len--] = '\0';
+	if (n == 0)
+		str[0] = '0';
+	while (n != 0)
+	{
+		str[len--] = (n % 10) + '0';
+		n = n / 10;
+	}
+	if (sign)
+		str[0] = '-';
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+	int		sign;
+
+	if (n == -2147483648)
+		return (ft_st_strdup("-2147483648"));
+	len = ft_st_num_len(n);
+	sign = 0;
+	if (n < 0)
+	{
+		sign = 1;
+		n = -n;
+		len++;
+	}
+	str = malloc((len + 1) * sizeof(char));
+	if (str != NULL)
+	{
+		ft_st_fill_str(str, n, len, sign);
+	}
+	return (str);
+}
 /*
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-int main() {
-    const char str[] = "Hello, world!";
-    char *result = ft_strdup(str);
+int main(void) {
+    int n = -214748364;
 
-    if (result != NULL) {
-        printf("ft_strdup: %s\n", result);
-        free(result);
-    } else {
-        printf("La asignación de memoria con ft_strdup falló.\n");
-    }
+    char *str = ft_itoa(n);
 
-    char *original_result = strdup(str);
-
-    if (original_result != NULL) {
-        printf("strdup: %s\n", original_result);
-        free(original_result);
-    } else {
-        printf("La asignación de memoria con strdup falló.\n");
+    if (str) {
+        printf("Resultado: %s\n", str);
+        free(str);
     }
 
     return 0;

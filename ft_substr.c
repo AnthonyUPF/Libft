@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:35:56 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/29 17:19:58 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/09/30 15:06:33 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		sub_len = len;
 	else
 		sub_len = s_len - start;
-	substr = malloc(sub_len + 1);
+	substr = malloc((sub_len + 1) * sizeof(char));
 	if (substr != NULL)
 	{
 		i = 0;

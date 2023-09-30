@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 19:57:45 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/30 15:45:28 by anthtorr         ###   ########.fr       */
+/*   Created: 2023/09/30 19:41:37 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/30 19:48:12 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	while (*s)
+		write(fd, s++, 1);
 }
 /*
-#include <stdio.h>
-#include <string.h>
-int main()
+int main(void)
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
+    char *s = "Hello, World!\n";
+    int fd = 1; 
+
+    ft_putstr_fd(s, fd);
+
     return 0;
 }
 */

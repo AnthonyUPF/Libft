@@ -1,34 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 19:57:45 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/30 15:45:28 by anthtorr         ###   ########.fr       */
+/*   Created: 2023/09/30 19:30:09 by anthtorr          #+#    #+#             */
+/*   Updated: 2023/09/30 19:32:43 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	len;
+	unsigned int	i;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	if (s == NULL || f == NULL)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
 /*
 #include <stdio.h>
-#include <string.h>
-int main()
+#include <ctype.h>
+
+void modify_char(unsigned int i, char *c)
 {
-    char *str = "Hello world!";
-    printf("ft_strlen: %lu\n", ft_strlen(str));
-    printf("strlen: %lu\n", strlen(str));
+    if (i % 2 == 0)
+        *c = toupper(*c);
+}
+
+int main(void)
+{
+    char s[] = "hello, world!";
+
+    ft_striteri(s, modify_char);
+
+    printf("Resultado: %s\n", s);
+
     return 0;
 }
 */
