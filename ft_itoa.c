@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 15:55:00 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/30 16:40:11 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:01:35 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_st_fill_str(char *str, int n, int len, int sign)
 {
 	str[len--] = '\0';
 	if (n == 0)
-		str[0] = '0';
+		str[len--] = '0';
 	while (n != 0)
 	{
 		str[len--] = (n % 10) + '0';

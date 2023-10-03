@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:31:25 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/29 17:11:49 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:06:58 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,22 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char		*tmp_dst;
 	const unsigned char	*tmp_src;
-	unsigned char		*tmp;
 
 	tmp_dst = dst;
 	tmp_src = src;
-	tmp = malloc(len);
-	if (!tmp)
+	if (dst == NULL && src == NULL)
 		return (NULL);
-	ft_st_memcpy(tmp, tmp_src, len);
-	ft_st_memcpy(tmp_dst, tmp, len);
-	free(tmp);
+	if (dst <= src || tmp_dst >= (tmp_src + len))
+	{
+		return (ft_st_memcpy(dst, src, len));
+	}
+	else
+	{
+		tmp_dst += len;
+		tmp_src += len;
+		while (len--)
+			*(--tmp_dst) = *(--tmp_src);
+	}
 	return (dst);
 }
 /*

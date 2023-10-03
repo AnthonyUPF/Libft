@@ -6,14 +6,26 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:30:55 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/28 12:40:22 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:32:08 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static size_t	ft_st_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
+
 char	*ft_strchr(const char *s, int c)
 {
+	if (c == '\0')
+		return ((char *)s + ft_st_strlen(s));
 	while (*s)
 	{
 		if (*s == c)

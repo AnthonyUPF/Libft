@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:35:56 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/09/30 15:06:33 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:57:57 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,26 @@ static size_t	ft_st_strlen(const char *s)
 	return (len);
 }
 
+char	*ft_st_strdup(const char *s1)
+{
+	size_t		len;
+	const char	*p;
+	char		*new_str;
+	char		*dst;
+
+	p = s1;
+	len = ft_st_strlen(p);
+	new_str = malloc((len + 1) * sizeof(char));
+	if (new_str != NULL)
+	{
+		dst = new_str;
+		while (*p != '\0')
+			*dst++ = *p++;
+		*dst = '\0';
+	}
+	return (new_str);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	s_len;
@@ -31,7 +51,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	s_len = ft_st_strlen(s);
 	if (start >= s_len)
-		return (malloc(1));
+		return (ft_st_strdup(""));
 	if (len < (s_len - start))
 		sub_len = len;
 	else
