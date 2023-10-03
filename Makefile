@@ -6,7 +6,7 @@
 #    By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 12:11:09 by anthtorr          #+#    #+#              #
-#    Updated: 2023/10/01 16:38:33 by anthtorr         ###   ########.fr        #
+#    Updated: 2023/10/03 14:31:45 by anthtorr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,9 +55,13 @@ fclean: clean
 re:	fclean all
 
 # Regla para construir la versión con funciones bonus
-bonus: $(OBJS_BONUS) 
-	ar rcs $(NAME) $(OBJS_BONUS)
+bonus: $(OBJS_BONUS)
+	@if [ -f $(NAME) ]; then \
+		echo "make: 'libft.a' is up to date."; \
+		$(AR) rcs $(NAME) $(OBJS_BONUS); \
+	else \
+		$(MAKE) all; \
+	fi
 
-# Indica que "all", "clean", "fclean", "re", y "bonus" no son nombres de archivos
+# Indica que "all", "clean", "fclean", "re", "bonus" no son nombres de archivos
 .PHONY: all clean fclean re bonus
-
