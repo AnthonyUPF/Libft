@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:33:08 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/10/03 15:51:23 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:11:28 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,38 +22,27 @@ static size_t	ft_st_strlen(const char *s)
 	return (len);
 }
 
-static char	*ft_st_strncpy(char *dst, const char *src, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	while (src[i] && i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
-}
-
 size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsz)
 {
-	size_t	dst_len;
-	size_t	src_len;
-	size_t	copy_len;
+	unsigned int	i;
+	size_t			len_s;
+	size_t			len_d;
 
-	dst_len = ft_st_strlen(dst);
-	src_len = ft_st_strlen(src);
-	if (dstsz <= dst_len)
-		return (dstsz + src_len);
-	copy_len = dstsz - dst_len - 1;
-	ft_st_strncpy(dst + dst_len, src, copy_len);
-	dst[dst_len + copy_len] = '\0';
-	return (dst_len + src_len);
+	len_d = ft_st_strlen(dst);
+	len_s = ft_st_strlen(src);
+	if (len_d >= dstsz)
+		return (len_s + dstsz);
+	i = 0;
+	while (src[i] && i < dstsz - len_d)
+	{
+		dst[i + len_d] = src[i];
+		i++;
+	}
+	if (i + len_d < dstsz)
+		dst[i + len_d] = '\0';
+	else
+		dst[i + len_d - 1] = '\0';
+	return (len_d + len_s);
 }
 /*
 #include <stdio.h>

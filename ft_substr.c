@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:35:56 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/10/03 15:57:57 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:56:15 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static size_t	ft_st_strlen(const char *s)
 	size_t	len;
 
 	len = 0;
-	while (s[len] != '\0')
+	while (s[len])
 		len++;
 	return (len);
 }
 
-char	*ft_st_strdup(const char *s1)
+static char	*ft_st_strdup(const char *s1)
 {
 	size_t		len;
 	const char	*p;

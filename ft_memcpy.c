@@ -6,13 +6,13 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:34:52 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/10/03 15:07:46 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:44:35 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char		*tmp_dst;
 	const char	*tmp_src;

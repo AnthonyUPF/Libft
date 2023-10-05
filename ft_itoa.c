@@ -6,7 +6,7 @@
 /*   By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 15:55:00 by anthtorr          #+#    #+#             */
-/*   Updated: 2023/10/03 16:01:35 by anthtorr         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:56:30 by anthtorr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	ft_st_strlen(const char *s)
 	return (len);
 }
 
-char	*ft_st_strdup(const char *s1)
+static char	*ft_st_strdup(const char *s1)
 {
 	size_t		len;
 	const char	*p;
@@ -46,11 +46,15 @@ static int	ft_st_num_len(int n)
 {
 	int	len;
 
-	len = 0;
-	while (n != 0)
+	len = 1;
+	if (n != 0)
 	{
-		n /= 10;
-		len++;
+		len = 0;
+		while (n != 0)
+		{
+			n /= 10;
+			len++;
+		}
 	}
 	return (len);
 }
