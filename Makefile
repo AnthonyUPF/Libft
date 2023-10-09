@@ -6,7 +6,7 @@
 #    By: anthtorr <anthtorr@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 12:11:09 by anthtorr          #+#    #+#              #
-#    Updated: 2023/10/03 14:31:45 by anthtorr         ###   ########.fr        #
+#    Updated: 2023/10/09 15:16:54 by anthtorr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
        ft_putendl_fd.c ft_putnbr_fd.c
 
 # Lista de archivos fuente adicionales
-SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-			 ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-			 ft_lstmap.c
+SRCS_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+			 ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+			 ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
 # Genera una lista de objetos a partir de los archivos fuente
 OBJS = $(SRCS:.c=.o)
